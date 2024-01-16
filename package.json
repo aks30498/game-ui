@@ -1,20 +1,18 @@
 {
-  "name": "reactjs-vite-tailwindcss-boilerplate",
-  "description": "This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.",
+  "type": "module",
+  "name": "eternal-gaming",
+  "description": "Eternal gaming UI",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "João Paulo Moraes",
-    "email": "joaopaulomoraes@outlook.com",
-    "url": "https://github.com/joaopaulomoraes"
-  },
-  "bugs": {
-    "url": "https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate/issues",
-    "email": "joaopaulomoraes@outlook.com"
+    "name": "Akshay Sharma",
+    "email": "aksharma30498@gmail.com",
+    "url": "https://github.com/aks30498"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:tailwind": "tailwindcss build -i src/index.css -o src/tailwind.css",
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -22,6 +20,9 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.12",
+    "antd": "^5.12.8",
+    "axios": "^1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -48,6 +49,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
+    "vite-plugin-windicss": "^1.9.3",
     "vite-tsconfig-paths": "^4.2.3",
     "vitest": "^1.1.3"
   }
