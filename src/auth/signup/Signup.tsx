@@ -5,46 +5,50 @@ import {
   Form,
   Input,
   Button,
-  Checkbox,
   Row,
   Col,
   Typography,
   DatePicker,
   Flex,
+  Card,
+  Divider,
 } from 'antd';
 import { LABELS } from './SignupConstants';
 import { useForm } from 'antd/es/form/Form';
-import useSignup from 'services/hooks/useSignup';
+// import useSignup from 'services/hooks/useSignup';
 import { SignupRequest } from 'services/apis/auth';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 const Signup: React.FC = () => {
-  const { mutate: signup, data, isLoading } = useSignup();
+  // const { mutate: signup, data, isLoading } = useSignup();
 
   const onFinish = (values: SignupRequest) => {
-    signup(values);
+    // signup(values);
   };
 
   const [form] = useForm();
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Layout className='bg-gray-700'>
-        <Content>
-          <Row justify='start' className='h-screen'>
-            <Col xs={24} sm={12} md={10} className='p-8 bg-white h-full'>
-              <Flex align='center' justify='center' className='h-full'>
-                <div className='w-full'>
-                  <Title level={2}>{LABELS.SIGNUP_TITLE}</Title>
-                  <Form
-                    form={form}
-                    name='signup'
-                    onFinish={onFinish}
-                    size='middle'
-                  >
+    <Layout>
+      <Content>
+        <Row justify='center' className='h-screen'>
+          <Col xs={24} sm={12} md={10} className='h-full  p-8'>
+            <Flex align='center' justify='center' className='h-full'>
+              <div className='w-full'>
+                <Title level={2}>{LABELS.SIGNUP_TITLE}</Title>
+                <Form
+                  form={form}
+                  name='signup'
+                  onFinish={onFinish}
+                  size='middle'
+                >
+                  <Card>
                     {/* Personal Details */}
+                    <Divider orientation='left' plain className='mt-0'>
+                      {LABELS.PERSONAL_DETAILS}
+                    </Divider>
                     <Row gutter={16}>
                       <Col xs={12} sm={12}>
                         <Form.Item
@@ -120,6 +124,10 @@ const Signup: React.FC = () => {
                         </Form.Item>
                       </Col>
                     </Row>
+                    <Divider orientation='left' plain className='mt-0'>
+                      {LABELS.ADDRESS_DIVIDER}
+                    </Divider>
+
                     <Form.Item name={['personalDetails', 'address', 'street']}>
                       <Input placeholder={LABELS.STREET_LABEL} />
                     </Form.Item>
@@ -160,6 +168,9 @@ const Signup: React.FC = () => {
                       <Input placeholder={LABELS.ZIP_CODE_LABEL} />
                     </Form.Item>
 
+                    <Divider orientation='left' plain>
+                      {LABELS.CREDENTIALS}
+                    </Divider>
                     {/* Username and Password */}
                     <Form.Item
                       name='username'
@@ -192,18 +203,18 @@ const Signup: React.FC = () => {
                         type='primary'
                         htmlType='submit'
                         style={{ width: '100%' }}
-                        disabled={isLoading}
+                        // disabled={isLoading}
                       >
                         {LABELS.SIGNUP_BUTTON}
                       </Button>
                     </Form.Item>
-                  </Form>
-                </div>
-              </Flex>
-            </Col>
-          </Row>
-        </Content>
-      </Layout>
+                  </Card>
+                </Form>
+              </div>
+            </Flex>
+          </Col>
+        </Row>
+      </Content>
     </Layout>
   );
 };

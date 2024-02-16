@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_NODE_BASE_URL
-  ? `${process.env.REACT_APP_NODE_BASE_URL}/api/v1`
-  : `/api/v1`;
+  ? `${process.env.REACT_APP_NODE_BASE_URL}`
+  : `/api/`;
 
 const client = axios.create({
   baseURL: BASE_URL,

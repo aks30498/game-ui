@@ -3,10 +3,8 @@
 export default {
   content: ['./src/**/*.{mjs,js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {},
   },
   plugins: [],
-  corePlugins: {
-    preflight: false
-  }
-}
+  important: true,
+};

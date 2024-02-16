@@ -1,5 +1,5 @@
 // src/hooks/useLogin.ts
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { LoginRequest, LoginResponse, login } from 'services/apis/auth';
 
 const useLogin = () => {
